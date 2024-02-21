@@ -70,9 +70,6 @@ yarn-error.log
 # diretório utilizado para criação de arquivos temporários no CI/CD
 /.ci
 
-# Sonar
-.scannerwork
-
 # yarn not using Zero-Installs
 .pnp.*
 .yarn/*
