@@ -1,11 +1,14 @@
-// https://github.com/react-native-community/cli/blob/main/docs/platforms.md
-
 module.exports = {
   dependency: {
     platforms: {
-      android: {
-        sourceDir: './android/lib',
-      },
+      // desabilita auto linking desse repositório em outros repositórios que o instalarem como dependência
+      android: null,
+      ios: null,
     },
   },
+  project: {
+    ios: {},
+    android: {},
+  },
+  assets: ['./assets/fonts/'],
 };

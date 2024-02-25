@@ -1,118 +1,67 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, { useCallback } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 
 import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+  useNavigationHolder,
+  useDidMount,
+} from 'mapping-context-rn';
+import {
+  Button,
+  Container, Spacer, Text, useTheme, useViewStyles,
+} from 'mapping-style-guide-rn';
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  message: { textAlign: 'center' },
+  valueContainer: { width: '50%' },
+  scrollView: {
+    flexGrow: 1,
+    flexShrink: 0,
   },
 });
+
+const App = () => {
+  const navigationHolder = useNavigationHolder();
+  const theme = useTheme();
+
+  const handleAccountData = async () => {
+    console.log('TESTE');
+  };
+
+  useDidMount(() => {
+    handleAccountData();
+  });
+
+  const handleGoToMyAccount = useCallback(() => {
+    navigationHolder.navigate('CpfScreen');
+  }, [navigationHolder]);
+
+  const scrollViewStyle = useViewStyles(() => [
+    styles.scrollView,
+    {
+
+      padding: theme.spacings.sLarge,
+      backgroundColor: theme.colors.neutralWhite,
+    },
+  ], [theme.colors.neutralWhite, theme.spacings.sLarge]);
+  return (
+    <ScrollView contentContainerStyle={scrollViewStyle}>
+      <Container alignItems="center" justifyContent="center">
+        <Spacer size={theme.spacings.sSmall} />
+        <Text variant="headingSmall" color="neutralGray700">
+          Tudo pronto!
+        </Text>
+        <Spacer size={theme.spacings.sXXS} />
+        <Text color="neutralGray600" style={styles.message}>
+          Agora você já pode aproveitar todas as vantagens da sua nova conta
+        </Text>
+        <Spacer size={theme.spacings.sSmall} />
+      </Container>
+
+      <Spacer size={theme.spacings.sLarge} />
+      <Button testID="account-resume-continue-button" size="large" onPress={handleGoToMyAccount}>Acessar minha conta</Button>
+    </ScrollView>
+
+  );
+};
 
 export default App;
