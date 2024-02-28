@@ -28,7 +28,8 @@ const InitialScreen = () => {
   const navigation = useNavigationHolder();
 
   const goToNextPage = useCallback(() => {
-    navigation.navigate('Login');
+    // navigation.navigate('DASHBOARD', { screen: 'Dashboard' });
+    navigation.navigate('DASHBOARD');
   }, [navigation]);
 
   return (
@@ -39,7 +40,7 @@ const InitialScreen = () => {
           onPress={goToNextPage}
           size="large"
         >
-          Iniciar
+          Dashboard
         </Button>
 
         <Spacer size={theme.spacings.sXL} />
