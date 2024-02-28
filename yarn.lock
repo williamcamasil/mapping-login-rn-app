@@ -3772,13 +3772,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/react-native@npm:2.0.2":
-  version: 2.0.2
-  resolution: "@tsconfig/react-native@npm:2.0.2"
-  checksum: 336c23587b64a2b12edc9a5469b0a826f506b6c767dc77fa5a401834c2cc2335b9a9c9c0396c14d0c59a3161279a37c4dc7c11f634a2d19f725384fd91582d42
-  languageName: node
-  linkType: hard
-
 "@tsconfig/react-native@npm:2.0.3":
   version: 2.0.3
   resolution: "@tsconfig/react-native@npm:2.0.3"
@@ -3906,16 +3899,6 @@ __metadata:
   dependencies:
     "@types/istanbul-lib-report": "*"
   checksum: 93eb18835770b3431f68ae9ac1ca91741ab85f7606f310a34b3586b5a34450ec038c3eed7ab19266635499594de52ff73723a54a72a75b9f7d6a956f01edee95
-  languageName: node
-  linkType: hard
-
-"@types/jest@npm:29.2.1":
-  version: 29.2.1
-  resolution: "@types/jest@npm:29.2.1"
-  dependencies:
-    expect: ^29.0.0
-    pretty-format: ^29.0.0
-  checksum: 5610c9a44c57f6dc39cf54429ea8d04574ad4c3e3ddf9a2621882aa94a0758a42ca97a0d0aec41a8d0b149fa63bf3d077d1f07c1f1d82e3d89ad7408de211255
   languageName: node
   linkType: hard
 
@@ -10306,10 +10289,7 @@ __metadata:
     "@react-native-async-storage/async-storage": 1.17.7
     "@react-navigation/native": 6.1.6
     "@react-navigation/stack": 6.2.2
-    "@tsconfig/react-native": 2.0.2
-    "@types/jest": 29.2.1
     "@types/react": 18.0.24
-    "@types/react-test-renderer": 18.0.0
     axios: 0.21.4
     babel-preset-rn-mapping: "git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#dev"
     eslint-config-rn-mapping: "git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#dev"

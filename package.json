@@ -25,10 +25,7 @@
   },
   "devDependencies": {
     "@react-native-async-storage/async-storage": "1.17.7",
-    "@tsconfig/react-native": "2.0.2",
-    "@types/jest": "29.2.1",
     "@types/react": "18.0.24",
-    "@types/react-test-renderer": "18.0.0",
     "babel-preset-rn-mapping": "git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#dev",
     "eslint-config-rn-mapping": "git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#dev",
     "expo": "48.0.12",
