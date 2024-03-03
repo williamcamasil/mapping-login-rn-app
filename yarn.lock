@@ -3056,12 +3056,12 @@ __metadata:
   linkType: hard
 
 "@jridgewell/trace-mapping@npm:^0.3.12, @jridgewell/trace-mapping@npm:^0.3.17, @jridgewell/trace-mapping@npm:^0.3.18, @jridgewell/trace-mapping@npm:^0.3.9":
-  version: 0.3.24
-  resolution: "@jridgewell/trace-mapping@npm:0.3.24"
+  version: 0.3.25
+  resolution: "@jridgewell/trace-mapping@npm:0.3.25"
   dependencies:
     "@jridgewell/resolve-uri": ^3.1.0
     "@jridgewell/sourcemap-codec": ^1.4.14
-  checksum: 96f40a060a71a93b2f6c34dfc99370ed2078d6bf11b6b3c9077a0f81326f7fccc43ff5e2a08bf9de8b83431b9eee09706d2c54fd46150467659d2aa338406462
+  checksum: 9d3c40d225e139987b50c48988f8717a54a8c994d8a948ee42e1412e08988761d0754d7d10b803061cc3aebf35f92a5dbbab493bd0e1a9ef9e89a2130e83ba34
   languageName: node
   linkType: hard
 
@@ -10261,7 +10261,7 @@ __metadata:
 
 "mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#dev":
   version: 0.0.1
-  resolution: "mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#commit=c80d7befe2bb79c1ce0eaba0fe97f6fe7bbf73a9"
+  resolution: "mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#commit=eca1e54785eb2b665789fb5ea8d3b0721fd3f1c1"
   dependencies:
     "@react-navigation/native": 6.1.6
     "@react-navigation/stack": 6.2.2
@@ -10278,7 +10278,7 @@ __metadata:
     react-native-biometrics: 3.0.1
     react-native-safe-area-context: 4.5.1
     reactotron-react-native: 5.0.2
-  checksum: 54c2e7b3fcc14ea070063abaab9cf14facaae80d4c19c8842e3676bb67f318fe5fae1e732e99b12b7b92f62e228becba9f82756346e91d75d1ea9f93ff47e701
+  checksum: f5fff7f3d24e72466b50f70c946c6746c8c43681208f48cce2024d4c87ca5da305710c5f67a31d986879eca8515facd58851ac69bfd5b8d36db8a32fd91d2691
   languageName: node
   linkType: hard
 

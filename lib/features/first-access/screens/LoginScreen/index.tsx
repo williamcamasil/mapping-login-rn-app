@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import {
+  useAppContext,
   useDidMount,
   useDidMountAndUpdate,
   useNavigationHolder, withPropsInjection,
@@ -57,6 +58,7 @@ const LoginScreen = wrapForm<{}, FormValues>(
     form,
   }) => {
     const theme = useTheme();
+    const { _setLoggedUser } = useAppContext();
     const showModal = useModal();
     const navigation = useNavigationHolder();
     const [isButtonEnabled, setIsButtonEnabled] = useState<boolean>(true);
@@ -92,6 +94,12 @@ const LoginScreen = wrapForm<{}, FormValues>(
 
         // TODO: utilizar um autenticador de usuário firebase ou expo
         if (user === 'mapping.teste' && password === '1234') {
+          _setLoggedUser(currentUser => ({
+            ...currentUser,
+            email: user,
+            isAdminUser: false,
+          }));
+
           navigation.navigate('DASHBOARD');
           return;
         }
