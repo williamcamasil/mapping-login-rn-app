@@ -5,7 +5,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { AppProvider, createNavigationMock } from 'mapping-context-rn';
 import { ModalProvider, ThemeProvider } from 'mapping-style-guide-rn';
 
-import InitialScreen from '.';
+import LoginScreen from '.';
 
 const renderScreen = async () => {
   const result = render(
@@ -13,19 +13,19 @@ const renderScreen = async () => {
       <AppProvider>
         <NavigationContainer>
           <ModalProvider throttleTimeout={0}>
-            <InitialScreen />
+            <LoginScreen />
           </ModalProvider>
         </NavigationContainer>
       </AppProvider>
     </ThemeProvider>,
   );
 
-  await waitFor(() => result.UNSAFE_getByType(InitialScreen));
+  await waitFor(() => result.UNSAFE_getByType(LoginScreen));
 
   return result;
 };
 
-describe('InitialScreen', () => {
+describe('LoginScreen', () => {
   it('Should render screen with component banner carousel', async () => {
     const screen = await renderScreen();
     screen.getByTestId('carousel-flat-list-id');

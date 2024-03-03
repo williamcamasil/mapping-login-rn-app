@@ -3,7 +3,7 @@ import React from 'react';
 import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
 
 import { FirstAccessProvider } from '../providers/FirstAccessProvider';
-import InitialScreen from '../screens/InitialScreen';
+import LoginScreen from '../screens/LoginScreen';
 
 import NavigatorParamList from './types';
 
@@ -16,8 +16,8 @@ const screenOptions: StackNavigationOptions = {
 const Navigation = () => {
   return (
     <FirstAccessProvider>
-      <Stack.Navigator screenOptions={screenOptions} initialRouteName={'InitialScreen'}>
-        <Stack.Screen name="InitialScreen" component={InitialScreen} />
+      <Stack.Navigator screenOptions={screenOptions} initialRouteName={'LoginScreen'}>
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
       </Stack.Navigator>
     </FirstAccessProvider>
   );
