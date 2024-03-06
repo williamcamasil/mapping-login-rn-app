@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react';
 import {
   View,
   StyleSheet,
-  Image,
   TouchableWithoutFeedback,
 } from 'react-native';
 
@@ -16,13 +15,9 @@ import {
   Button,
   Container,
   useTheme,
-  Icons,
   Spacer,
-  Link,
-  NavigationBar,
   Text,
   StackedContainer,
-  InputPassword,
   InputText,
   wrapForm,
   OnSubmitFormType,
@@ -79,12 +74,20 @@ const LoginScreen = wrapForm<{}, FormValues>(
 
     const showModalError = useCallback(() => {
       showModal(AlertModal, {
-        testID: 'alert-modal-diff-password',
         title: 'O usuário ou senha está incorreto',
         description: 'Por favor tente novamente',
         primaryButtonName: 'Entendi',
         dismissible: false,
         onPressPrimary: resetForm,
+      });
+    }, [resetForm, showModal]);
+
+    const showUnavailableAccess = useCallback(() => {
+      showModal(AlertModal, {
+        title: 'Serviço indisponível no momento',
+        description: 'Login de acesso utilizando a conta google indisponível no momento, tente novamente mais tarde',
+        primaryButtonName: 'Entendi',
+        dismissible: false,
       });
     }, [resetForm, showModal]);
 
@@ -100,7 +103,7 @@ const LoginScreen = wrapForm<{}, FormValues>(
             isAdminUser: false,
           }));
 
-          navigation.navigate('DASHBOARD');
+          navigation.replace('DASHBOARD');
           return;
         }
 
@@ -116,13 +119,13 @@ const LoginScreen = wrapForm<{}, FormValues>(
 
     const renderCreatePassword = () => (
       <Container>
-        <Spacer size={theme.spacings.sSmall} />
+        <Spacer size={theme.spacings.sXXL} />
         <Text variant="headingSmall" color="neutralGray700">
           Login de acesso
         </Text>
         <Spacer size={theme.spacings.sXXL} />
         <InputText.Field
-          testID="input-number-card"
+          testID="input-user"
           label="Usuário"
           name="user"
           required
@@ -144,7 +147,7 @@ const LoginScreen = wrapForm<{}, FormValues>(
         <Spacer size={theme.spacings.sLarge} />
         <Text style={styles.textSocialMedia}>Se preferir, faça login via rede social, a partir de uma das opções abaixo:</Text>
         <Spacer size={theme.spacings.sLarge} />
-        <TouchableWithoutFeedback onPress={() => {console.log('Google')}}>
+        <TouchableWithoutFeedback testID="google-access" onPress={() => {showUnavailableAccess()}}>
           <View style={styles.imageSocialMedia}>
             <Images.Google width={48} height={48} />
           </View>
@@ -154,14 +157,9 @@ const LoginScreen = wrapForm<{}, FormValues>(
 
     return (
       <StackedContainer
-        headerContent={(
-          <NavigationBar />
-        )}
         topContent={renderCreatePassword()}
         bottomContent={(
-          // TODO: alterar cores da variant do botão no mapping-style-guide
           <Button
-            testID="create-credit-password-btn-continue"
             size="large"
             variant="containedPrimary"
             disabled={isButtonEnabled}

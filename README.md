@@ -5,3 +5,4 @@ O `mapping-login-rn-app` é o repositório responsável por features de autentic
 ### Pendencias
 
 - [ ] verificar erro no initialScreen do @testing-library/react-native no teste
+- [ ] para adicionar o firebase verificar se tem alguma informacao na documentacao
