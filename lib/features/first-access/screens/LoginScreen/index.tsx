@@ -25,6 +25,10 @@ import {
   AlertModal,
 } from 'mapping-style-guide-rn';
 import { Images } from '../../../../assets';
+import auth from '@react-native-firebase/auth';
+// import { GoogleAuthProvider, signInWithGoogle } from '@react-native-firebase/auth';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { CLI_ID_GOOGLE } from '../../../../api/authenticationService';
 
 const styles = StyleSheet.create({
   containerLink: {
@@ -66,7 +70,12 @@ const LoginScreen = wrapForm<{}, FormValues>(
       setIsButtonEnabled(false);
     }, [values]);
 
-    useDidMount(() => form.reset());
+    useDidMount(() => {
+      // form.reset()
+      GoogleSignin.configure({
+        webClientId: CLI_ID_GOOGLE,
+      });
+    });
 
     const resetForm = useCallback(() => {
       form.reset();
@@ -93,21 +102,34 @@ const LoginScreen = wrapForm<{}, FormValues>(
 
     const handleFormSubmit: OnSubmitFormType<FormValues> = useCallback(
       async values => {
-        const { user, password } = values;
+        // TODO: usar o user e password para logar com o firebase
+        // * const { user, password } = values;
+        const { user } = values;
 
-        // TODO: utilizar um autenticador de usuário firebase ou expo
-        if (user === 'mapping.teste' && password === '1234') {
-          _setLoggedUser(currentUser => ({
-            ...currentUser,
-            email: user,
-            isAdminUser: false,
-          }));
+        _setLoggedUser(currentUser => ({
+          ...currentUser,
+          email: user,
+          isAdminUser: false,
+        }));
 
+        const idToken = await GoogleSignin.signIn();
+
+        const googleCredential = auth.GoogleAuthProvider.credential(idToken.idToken);
+
+        return auth().signInWithCredential(googleCredential).then(data => {
+          console.log('data', data);
           navigation.replace('DASHBOARD');
-          return;
-        }
+        }).catch(error => {
+          // * console.log('error', error);
+          showModalError();
+        });
 
-        showModalError();
+        // * navigation.replace('DASHBOARD');
+        // * auth().createUserWithEmailAndPassword(user, password).then(data => {
+        // *   console.log('data', data);
+        // * }).catch(error => {
+        // *   console.log('error', error);
+        // * });
       },
       [navigation],
     );
