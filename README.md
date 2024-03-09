@@ -4,5 +4,7 @@ O `mapping-login-rn-app` é o repositório responsável por features de autentic
 
 ### Pendencias
 
-- [ ] verificar erro no initialScreen do @testing-library/react-native no teste
-- [ ] para adicionar o firebase verificar se tem alguma informacao na documentacao
+- [ ] adicionar no package "@react-native-google-signin/google-signin": "11.0.0", para login com o google
+  - yarn add @react-native-google-signin/google-signin -E
+  - Habilitar funções do google na tela de login
+  - Habilitar o #import <GoogleSignIn/GoogleSignIn.h> na pasta ios arquivo appdelegate.mm

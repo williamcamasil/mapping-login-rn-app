@@ -27,7 +27,6 @@
     "@react-native-async-storage/async-storage": "1.17.7",
     "@react-native-firebase/app": "18.0.0",
     "@react-native-firebase/auth": "18.0.0",
-    "@react-native-google-signin/google-signin": "11.0.0",
     "@types/react": "18.0.24",
     "babel-preset-rn-mapping": "git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#dev",
     "eslint-config-rn-mapping": "git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#dev",

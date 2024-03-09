@@ -1,12 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import {
-  View,
-  StyleSheet,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import {
-  useAppContext,
   useDidMount,
   useDidMountAndUpdate,
   useNavigationHolder, withPropsInjection,
@@ -23,12 +18,9 @@ import {
   OnSubmitFormType,
   useModal,
   AlertModal,
-  Link,
+  NavigationBar,
 } from 'mapping-style-guide-rn';
-import { Images } from '../../../../assets';
 import auth from '@react-native-firebase/auth';
-// import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { CLI_ID_GOOGLE } from '../../../../api/authenticationService';
 
 const styles = StyleSheet.create({
   containerLink: {
@@ -49,7 +41,7 @@ type FormValues = {
   password: string;
 };
 
-const LoginScreen = wrapForm<{}, FormValues>(
+const CreateAccountScreen = wrapForm<{}, FormValues>(
   ({
     handleSubmit,
     values,
@@ -57,7 +49,6 @@ const LoginScreen = wrapForm<{}, FormValues>(
     form,
   }) => {
     const theme = useTheme();
-    const { _setLoggedUser } = useAppContext();
     const showModal = useModal();
     const navigation = useNavigationHolder();
     const [isButtonEnabled, setIsButtonEnabled] = useState<boolean>(true);
@@ -72,64 +63,35 @@ const LoginScreen = wrapForm<{}, FormValues>(
 
     useDidMount(() => {
       form.reset()
-      // * GoogleSignin.configure({
-      // *   webClientId: CLI_ID_GOOGLE,
-      // * });
     });
 
-    const resetForm = useCallback(() => {
+    const handleResetForm = useCallback(() => {
       form.reset();
     }, []);
 
-    const showModalError = useCallback(() => {
-      showModal(AlertModal, {
-        title: 'O usuário ou senha está incorreto',
-        description: 'Por favor tente novamente',
-        primaryButtonName: 'Entendi',
-        dismissible: false,
-        onPressPrimary: resetForm,
-      });
-    }, [resetForm, showModal]);
-
-    const showUnavailableAccess = useCallback(() => {
-      // * const idToken = await GoogleSignin.signIn();
-
-      // * const googleCredential = auth.GoogleAuthProvider.credential(idToken.idToken);
-
-      // * return auth().signInWithCredential(googleCredential).then(data => {
-      // *   console.log('data', data);
-      // *   navigation.replace('DASHBOARD');
-      // * }).catch(error => {
-      // *   console.log('error', error);
-      // *   showModalError();
-      // });
-
-      showModal(AlertModal, {
-        title: 'Serviço indisponível no momento',
-        description: 'Login de acesso utilizando a conta google indisponível no momento, tente novamente mais tarde',
-        primaryButtonName: 'Entendi',
-        dismissible: false,
-      });
-    }, [resetForm, showModal]);
-
-    const handleCreateAccount = useCallback(() => {
-      navigation.navigate('CreateAccountScreen');
+    const handleNavigateToLogin = useCallback(() => {
+      navigation.replace('LoginScreen');
     }, []);
+
+    const showModalMessage = useCallback((title: string, description: string, action: boolean) => {
+      showModal(AlertModal, {
+        testID: 'alert-modal',
+        title: title,
+        description: description,
+        primaryButtonName: 'Ok',
+        dismissible: false,
+        onPressPrimary: action ? handleNavigateToLogin : handleResetForm,
+      });
+    }, [showModal]);
 
     const handleFormSubmit: OnSubmitFormType<FormValues> = useCallback(
       async values => {
         const { user, password } = values;
 
-        _setLoggedUser(currentUser => ({
-          ...currentUser,
-          email: user,
-          isAdminUser: false,
-        }));
-
-        return auth().signInWithEmailAndPassword(user, password).then(() => {
-          navigation.replace('DASHBOARD');
+        auth().createUserWithEmailAndPassword(user, password).then(() => {
+          showModalMessage('Conta criada com sucesso!', 'Agora você pode fazer login com seu usuário e senha cadastrados.', true);
         }).catch(() => {
-          showModalError();
+          showModalMessage('Ocorreu um erro', 'Login ou senha inválidos, tente novamente.', false);
         });
       },
       [navigation],
@@ -142,9 +104,9 @@ const LoginScreen = wrapForm<{}, FormValues>(
 
     const renderCreatePassword = () => (
       <Container>
-        <Spacer size={theme.spacings.sXXL} />
+        <Spacer size={theme.spacings.sLarge} />
         <Text variant="headingSmall" color="neutralGray700">
-          Login de acesso
+          Registre sua conta
         </Text>
         <Spacer size={theme.spacings.sXXL} />
         <InputText.Field
@@ -168,23 +130,12 @@ const LoginScreen = wrapForm<{}, FormValues>(
           required
           disabled={submitting}
         />
-        <Spacer size={theme.spacings.sLarge} />
-        <Link onPress={handleCreateAccount}>
-          Criar uma conta
-        </Link>
-        <Spacer size={theme.spacings.sLarge} />
-        <Text style={styles.textSocialMedia}>Se preferir, faça login via rede social, a partir de uma das opções abaixo:</Text>
-        <Spacer size={theme.spacings.sLarge} />
-        <TouchableWithoutFeedback testID="google-access" onPress={() => {showUnavailableAccess()}}>
-          <View style={styles.imageSocialMedia}>
-            <Images.Google width={48} height={48} />
-          </View>
-        </TouchableWithoutFeedback>
       </Container>
     );
 
     return (
       <StackedContainer
+        headerContent={<NavigationBar />}
         topContent={renderCreatePassword()}
         bottomContent={(
           <Button
@@ -193,7 +144,7 @@ const LoginScreen = wrapForm<{}, FormValues>(
             disabled={isButtonEnabled}
             onPress={handleSubmit(handleFormSubmit)}
           >
-            Acessar
+            Registrar
           </Button>
         )}
       />
@@ -201,4 +152,4 @@ const LoginScreen = wrapForm<{}, FormValues>(
   },
 );
 
-export default withPropsInjection(LoginScreen, {});
+export default withPropsInjection(CreateAccountScreen, {});

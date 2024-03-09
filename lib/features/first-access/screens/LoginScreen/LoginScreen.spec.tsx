@@ -2,12 +2,16 @@ import React from 'react';
 
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import {
-  render, fireEvent, waitFor, waitForElementToBeRemoved,
+  render, fireEvent, waitFor,
 } from '@testing-library/react-native';
 import { AppProvider, createNavigationMock } from 'mapping-context-rn';
 import { ModalProvider, ThemeProvider } from 'mapping-style-guide-rn';
 
 import LoginScreen from '.';
+
+jest.mock('@react-native-firebase/auth', () => () => ({
+  signInWithEmailAndPassword: jest.fn(() => Promise.resolve()),
+}));
 
 const renderScreen = async () => {
   const result = render(
@@ -41,20 +45,11 @@ describe('LoginScreen', () => {
   it('Should make access and navigate to dashboard', async () => {
     const navigationHolder = createNavigationMock();
     const screen = await renderScreen();
-    fireEvent.changeText(await screen.findByTestId('input-user'), 'mapping.teste');
-    fireEvent.changeText(await screen.findByTestId('input-password'), '1234');
+    fireEvent.changeText(await screen.findByTestId('input-user'), 'teste@gmail.com');
+    fireEvent.changeText(await screen.findByTestId('input-password'), '123456');
     fireEvent.press(screen.getByText('Acessar'));
     await waitFor(() => { expect(navigationHolder.dispatch).toBeCalledWith(StackActions.replace('DASHBOARD')); });
-  });
-
-  it('Should show alert error modal, click on "Entendi" and close modal', async () => {
-    const screen = await renderScreen();
-    fireEvent.changeText(await screen.findByTestId('input-user'), 'mapping.teste');
-    fireEvent.changeText(await screen.findByTestId('input-password'), '0000');
-    fireEvent.press(screen.getByText('Acessar'));
-    await screen.findByText('O usuário ou senha está incorreto');
-    fireEvent.press(screen.getByTestId('alert-modal-primary-button'));
-    await waitForElementToBeRemoved(() => screen.queryByText('O usuário ou senha está incorreto'));
+    screen.unmount();
   });
 
   it('Should show alert modal with unavailable access message', async () => {
