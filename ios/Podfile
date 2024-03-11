@@ -53,12 +53,6 @@ def common_config
   )
 
   permissions_path = '../node_modules/react-native-permissions/ios'
-
-  # Omni modules
-  if(File.exist?('../node_modules/omni-context-rn/ios'))
-    # Checa se a dependência está instalada na node_modules antes de tentar vincular a dependência nativa.
-    pod 'OmniDigitalContext', path: '../node_modules/omni-context-rn/ios'
-  end
 end
 
 post_integrate do |installer|
