@@ -1,0 +1,3 @@
+{
+  "extends": "./node_modules/mapping-tools-rn/lib/typescript/tsconfig.json"
+}

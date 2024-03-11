@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/AvertaCY-Bold.ttf",
+      "sha1": "5b53b8396334f9d7cfa200aeacb02aa333c88a0c"
+    },
+    {
+      "path": "assets/fonts/AvertaCY-Regular.ttf",
+      "sha1": "5e2c1566097ced9b389afdaa68b193cc798739b0"
+    },
+    {
+      "path": "assets/fonts/AvertaCY-Semibold.ttf",
+      "sha1": "c714717b0de0c50ce335ceb545a8da694ca4fc48"
+    }
+  ]
+}

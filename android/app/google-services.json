@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "756364528893",
+    "project_id": "super-app-mapping-master",
+    "storage_bucket": "super-app-mapping-master.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756364528893:android:26b13ff94d485594700294",
+        "android_client_info": {
+          "package_name": "com.mappingcorern"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756364528893-2j04sah9ia51ea8r6g4ejojher5069q1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mappingcorern",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "756364528893-8ocn5ffqjm90iu3i9dr8g479mciqasoe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjTCdfji2IcoY-mS7yQMYy2AMCnoxwh5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756364528893-8ocn5ffqjm90iu3i9dr8g479mciqasoe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "756364528893-keq6696rkj2vli6k27bieccf1g9kvthh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mappingcorern"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756364528893:android:34496d9766f63c26700294",
+        "android_client_info": {
+          "package_name": "com.mappingloginrnapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756364528893-17coh39gruqcfr70t9hfa6s4u4o5ed9v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mappingloginrnapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "756364528893-8ocn5ffqjm90iu3i9dr8g479mciqasoe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjTCdfji2IcoY-mS7yQMYy2AMCnoxwh5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756364528893-8ocn5ffqjm90iu3i9dr8g479mciqasoe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "756364528893-keq6696rkj2vli6k27bieccf1g9kvthh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mappingcorern"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
