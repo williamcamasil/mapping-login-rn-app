@@ -2,7 +2,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <Firebase.h>
-// #import <GoogleSignIn/GoogleSignIn.h>
+#import <GoogleSignIn/GoogleSignIn.h>
 
 @implementation AppDelegate
 

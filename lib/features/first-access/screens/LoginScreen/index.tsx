@@ -27,7 +27,7 @@ import {
 } from 'mapping-style-guide-rn';
 import { Images } from '../../../../assets';
 import auth from '@react-native-firebase/auth';
-// import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { CLI_ID_GOOGLE } from '../../../../api/authenticationService';
 
 const styles = StyleSheet.create({
@@ -71,10 +71,11 @@ const LoginScreen = wrapForm<{}, FormValues>(
     }, [values]);
 
     useDidMount(() => {
-      form.reset()
-      // * GoogleSignin.configure({
-      // *   webClientId: CLI_ID_GOOGLE,
-      // * });
+      // form.reset()
+      GoogleSignin.configure({
+        webClientId: CLI_ID_GOOGLE,
+      });
+      GoogleSignin.signOut();
     });
 
     const resetForm = useCallback(() => {
@@ -91,25 +92,24 @@ const LoginScreen = wrapForm<{}, FormValues>(
       });
     }, [resetForm, showModal]);
 
-    const showUnavailableAccess = useCallback(() => {
-      // * const idToken = await GoogleSignin.signIn();
+    const showUnavailableAccess = useCallback(async () => {
+      const idToken = await GoogleSignin.signIn();
 
-      // * const googleCredential = auth.GoogleAuthProvider.credential(idToken.idToken);
+      const googleCredential = auth.GoogleAuthProvider.credential(idToken.idToken);
 
-      // * return auth().signInWithCredential(googleCredential).then(data => {
-      // *   console.log('data', data);
-      // *   navigation.replace('DASHBOARD');
-      // * }).catch(error => {
-      // *   console.log('error', error);
-      // *   showModalError();
-      // });
-
-      showModal(AlertModal, {
-        title: 'Serviço indisponível no momento',
-        description: 'Login de acesso utilizando a conta google indisponível no momento, tente novamente mais tarde',
-        primaryButtonName: 'Entendi',
-        dismissible: false,
-      });
+      return auth().signInWithCredential(googleCredential).then(data => {
+        console.log('data', data);
+        const loggedEmail = data.additionalUserInfo?.profile?.email;
+        _setLoggedUser(currentUser => ({
+          ...currentUser,
+          email: loggedEmail,
+          isAdminUser: false,
+        }));
+        navigation.replace('DASHBOARD');
+      }).catch(error => {
+        console.log('error', error);
+        showModalError();
+       });
     }, [resetForm, showModal]);
 
     const handleCreateAccount = useCallback(() => {
