@@ -5055,9 +5055,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-preset-rn-mapping@git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#master":
+"babel-preset-rn-mapping@git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#dev":
   version: 1.0.0
-  resolution: "babel-preset-rn-mapping@git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#commit=96a068205cb038c778487c8fe7e6c07fda29912a"
+  resolution: "babel-preset-rn-mapping@git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#commit=f67d6f0346aeef3807efc856de060d29b1ff441e"
   dependencies:
     "@babel/core": 7.21.4
     "@babel/eslint-parser": 7.22.15
@@ -6870,9 +6870,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-rn-mapping@git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#master":
+"eslint-config-rn-mapping@git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#dev":
   version: 1.0.0
-  resolution: "eslint-config-rn-mapping@git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#commit=8329d5ad8f782f4a62bc14005c8114ea0b22e8fe"
+  resolution: "eslint-config-rn-mapping@git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#commit=52482a9f98a623e6e2797bbeb4e575dba20433e9"
   dependencies:
     "@react-native-community/eslint-config": 3.2.0
     eslint: 8.39.0
@@ -6883,7 +6883,7 @@ __metadata:
     eslint-plugin-jsx-a11y: 6.7.1
     eslint-plugin-react-perf: 3.3.1
     eslint-plugin-testing-library: 5.10.3
-  checksum: ccadac8a2adcac6d522616f350dc3d1e35d609f6847b58c56467c63a95aa7fef13e7f3bff42b82942fd4ff4217ff2471557914dda7653044610b8b73c3312a38
+  checksum: 8063ce013ebe5745c04e92a4c9563c5b5b8efd30abcb211704bfcfe227b9bce6f78fc6349c93f5dc57d30f0405a2699d76e676da0a5d48b2bc945e36466f2fb6
   languageName: node
   linkType: hard
 
@@ -10420,9 +10420,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#master":
+"mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#dev":
   version: 0.0.1
-  resolution: "mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#commit=42496014c1b46e064a08af96cd479b7289ab1c77"
+  resolution: "mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#commit=60ac41dd93fb2030a504bff22c75208e5042fb49"
   dependencies:
     "@react-navigation/native": 6.1.6
     "@react-navigation/stack": 6.2.2
@@ -10439,7 +10439,7 @@ __metadata:
     react-native-biometrics: 3.0.1
     react-native-safe-area-context: 4.5.1
     reactotron-react-native: 5.0.2
-  checksum: f1f83fe8dc0fd262fe255d8a40989343d0617709f522b51537df494704936bd0bca5e0f0050a24f445411ee5411321315c8c3a2aadaea44130d10b377dbcd3d7
+  checksum: ffc43bf09ec20aa8efda2b7f8751dafb30e9b16208b38c2bf5b7df5e5380110b6f31314f560c63b3c3c403106430321dc26d7815c89d324175587543579de13c
   languageName: node
   linkType: hard
 
@@ -10454,16 +10454,16 @@ __metadata:
     "@react-navigation/stack": 6.2.2
     "@types/react": 18.0.24
     axios: 0.21.4
-    babel-preset-rn-mapping: "git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#master"
-    eslint-config-rn-mapping: "git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#master"
+    babel-preset-rn-mapping: "git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#dev"
+    eslint-config-rn-mapping: "git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#dev"
     expo: 48.0.12
     expo-image-manipulator: 11.1.1
     expo-linear-gradient: 12.1.2
     expo-secure-store: 12.1.1
     lottie-react-native: 5.1.4
-    mapping-context-rn: "git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#master"
-    mapping-style-guide-rn: "git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#master"
-    mapping-tools-rn: "git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#master"
+    mapping-context-rn: "git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#dev"
+    mapping-style-guide-rn: "git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#dev"
+    mapping-tools-rn: "git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#dev"
     npm-run-all: 4.1.5
     react: 18.2.0
     react-native: 0.71.7
@@ -10478,9 +10478,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"mapping-style-guide-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#master":
+"mapping-style-guide-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#dev":
   version: 0.0.1
-  resolution: "mapping-style-guide-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#commit=1ff756ecad836d185d9fbf106579fec8302b785d"
+  resolution: "mapping-style-guide-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#commit=95bec4fe761dda5a179b1c78c515c0eb87f2e29a"
   dependencies:
     "@callstack/react-theme-provider": 3.0.7
     "@types/color": 3.0.3
@@ -10490,13 +10490,13 @@ __metadata:
     react-final-form: 6.5.9
     react-native-calendars: 1.1299.0
     react-native-shimmer-placeholder: 2.0.9
-  checksum: 22289df94a4ad14c57e21a21167ae42e4ae831fd5cf4d511388eb317b1704f33d9248bdb40dc1f6c6985553384bfdf81e4b60d397ae85e5095745d54fd137f22
+  checksum: 7b04872eba178a01cd42234814f9cf630c2c83a92b7443ad1df21c071151c95a9492499e6cbbd0040eaec4a6b211c5bcf1d9168dd7141b1c78adf10e22232524
   languageName: node
   linkType: hard
 
-"mapping-tools-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#master":
+"mapping-tools-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#dev":
   version: 1.0.0
-  resolution: "mapping-tools-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#commit=0ee9e78d1622ca2ea3befdbf6bccfc5d75b484fd"
+  resolution: "mapping-tools-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#commit=76cfac61af6fd5298e70bfec7895c73530a8fd2f"
   dependencies:
     "@commitlint/cli": 17.6.1
     "@commitlint/config-angular": 17.6.1
