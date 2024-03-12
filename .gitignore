@@ -58,6 +58,9 @@ yarn-error.log
 /coverage
 /jest_cache
 
+# ID Google
+lib/api/authenticationService
+
 # Source map / Crashlytics
 /source-maps
 
